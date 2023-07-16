@@ -18,5 +18,4 @@ const CourseTeacher = sequelize.define(
 		tableName: 'CourseTeacher',
 	}
 );
-
 module.exports = CourseTeacher;
