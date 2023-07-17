@@ -32,7 +32,7 @@ models.Teacher.belongsToMany(models.Course, {
 	through: 'CourseTeacher',
 	foreignKey: 'teacherId',
 });
-models.Course.belongsToMany(models.Student, {
+models.Course.belongsToMany(models.Teacher, {
 	through: 'CourseTeacher',
 	foreignKey: 'courseId',
 });
