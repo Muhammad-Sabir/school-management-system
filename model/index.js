@@ -1,13 +1,13 @@
 const sequelize = require('../config/dbConnection');
 
-const models = {
-	User: require('./user'),
-	Student: require('./student'),
-	Teacher: require('./teacher'),
-	Course: require('./course'),
-	Enrollment: require('./enrollment'),
-	CourseTeacher: require('./courseTeacher'),
-};
+const models = ({
+	User,
+	Student,
+	Teacher,
+	Course,
+	Enrollment,
+	CourseTeacher,
+} = require('./entities/index'));
 
 // User - Student
 models.User.hasOne(models.Student, { foreignKey: 'userId' });
@@ -38,5 +38,4 @@ models.Course.belongsToMany(models.Teacher, {
 });
 
 sequelize.models = models;
-
 module.exports = models;
