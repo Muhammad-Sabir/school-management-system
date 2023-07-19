@@ -1,16 +1,22 @@
-const {} = require('../model/index');
+const { User } = require('../model/index');
 
 module.exports = {
-	login: async function (password, email) {
-		const check = await userModel.login(email, password);
-		return check.dataValues;
-		// if (password === 'sabirraza' && email === 'sabir.tabi1122@gmail.com')
-		// 	return 'LOGGED IN!';
-
-		// return 'INCORRECT EMAIL OR PASSWORD';
+	login: (username, password) => {
+		User.login(username, password)
+			.then((result) => {
+				return result;
+			})
+			.catch((err) => {
+				console.log(err);
+			});
 	},
 	signup: async function (body) {
-		const response = await userModel.signup(body);
-		return response;
+		User.signup(body)
+			.then((result) => {
+				return result;
+			})
+			.catch((err) => {
+				console.log(err);
+			});
 	},
 };

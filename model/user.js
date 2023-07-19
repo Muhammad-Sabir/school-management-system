@@ -5,12 +5,13 @@ module.exports = {
 		User.create(body)
 			.then((result) => {
 				console.log(result);
+				return result;
 			})
 			.catch((err) => {
 				console.log(err);
 			});
 	},
-	login: (email, password) => {
+	login: (username, password) => {
 		User.findOne({
 			where: {
 				username: username,
