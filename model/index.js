@@ -1,13 +1,3 @@
-const sequelize = require('../config/dbConnection');
-
-const models = {
+module.exports = {
 	User: require('./user'),
-	Student: require('./student'),
-	Teacher: require('./teacher'),
-	Course: require('./course'),
-	Enrollment: require('./enrollment'),
 };
-
-sequelize.models = models;
-
-module.exports = models;
