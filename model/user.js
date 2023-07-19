@@ -1,35 +1,82 @@
-const { DataTypes } = require('sequelize');
+const { User } = require('./entities/index');
 
-const sequelize = require('../config/dbConnection');
-
-const User = sequelize.define(
-	'User',
-	{
-		id: {
-			type: DataTypes.INTEGER,
-			allowNull: false,
-			unique: true,
-			primaryKey: true,
-			autoIncrement: true,
-		},
-		username: {
-			type: DataTypes.STRING,
-			unique: true,
-			allowNull: false,
-		},
-		password: {
-			type: DataTypes.STRING,
-			allowNull: false,
-		},
-		role: {
-			type: DataTypes.ENUM('teacher', 'student'),
-			allowNull: false,
-		},
+module.exports = {
+	signup: (body) => {
+		User.create(body)
+			.then((result) => {
+				console.log(result);
+			})
+			.catch((err) => {
+				console.log(err);
+			});
 	},
-	{
-		paranoid: true,
-		tableName: 'User',
-	}
-);
-
-module.exports = User;
+	login: (email, password) => {
+		User.findOne({
+			where: {
+				username: username,
+				password: password,
+			},
+		})
+			.then((result) => {
+				console.log(result);
+				return result;
+			})
+			.catch((err) => {
+				console.log(err);
+			});
+	},
+	getUserById: async function (id) {
+		User.findBy({
+			where: {
+				id: id,
+			},
+		})
+			.then((result) => {
+				console.log(result);
+				return result;
+			})
+			.catch((err) => {
+				console.log(err);
+			});
+	},
+	getAllUsers: async function () {
+		User.findAll()
+			.then((result) => {
+				console.log(result);
+				return result;
+			})
+			.catch((err) => {
+				console.log(err);
+			});
+	},
+	removeUser: (id) => {
+		User.destroy({
+			where: {
+				id: id,
+			},
+		})
+			.then((result) => {
+				console.log(result);
+				return result;
+			})
+			.catch((err) => {
+				console.log(err);
+			});
+	},
+	updateUser: async function (body) {
+		User.update(body, {
+			where: {
+				id: id,
+			},
+			returning: true,
+		})
+			.then(([rowsUpdated, [updatedUser]]) => {
+				console.log(`${rowsUpdated} rows updated.`);
+				console.log('Updated user:', updatedUser);
+				return updatedUser;
+			})
+			.catch((err) => {
+				console.log(err);
+			});
+	},
+};
