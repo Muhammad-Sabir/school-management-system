@@ -16,9 +16,9 @@ module.exports = {
 			.then((result) => {
 				res.send(result);
 			})
-			.catch((err) => {
-				console.log(err);
-				res.send('Not signing up!');
-			});
+            .catch(err => { 
+                console.log(err);
+                res.send('Not signing up!');
+            });
 	},
 };

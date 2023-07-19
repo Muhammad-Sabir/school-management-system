@@ -2,7 +2,7 @@ const { User } = require('../model/index');
 
 module.exports = {
 	login: (username, password) => {
-		User.login(username, password)
+		return User.login(username, password)
 			.then((result) => {
 				return result;
 			})
@@ -11,12 +11,13 @@ module.exports = {
 			});
 	},
 	signup: async function (body) {
-		User.signup(body)
+		return User.signup(body)
 			.then((result) => {
 				return result;
 			})
 			.catch((err) => {
 				console.log(err);
+				return err;
 			});
 	},
 };

@@ -1,10 +1,6 @@
 const { Sequelize } = require('sequelize');
-const fs = require('fs');
 
-const rawConfig = fs.readFileSync('config.json');
-const config = JSON.parse(rawConfig);
-
-const dbConfig = config.database;
+const dbConfig = require('./config.json').database;
 
 const sequelize = new Sequelize(
 	dbConfig.database,

@@ -2,7 +2,7 @@ const { User } = require('./entities/index');
 
 module.exports = {
 	signup: (body) => {
-		User.create(body)
+		return User.create(body)
 			.then((result) => {
 				console.log(result);
 				return result;
@@ -12,7 +12,7 @@ module.exports = {
 			});
 	},
 	login: (username, password) => {
-		User.findOne({
+		return User.findOne({
 			where: {
 				username: username,
 				password: password,
@@ -24,6 +24,7 @@ module.exports = {
 			})
 			.catch((err) => {
 				console.log(err);
+				return err;
 			});
 	},
 	getUserById: async function (id) {
