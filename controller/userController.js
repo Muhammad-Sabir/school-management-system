@@ -1,8 +1,9 @@
-const { login, signup } = require('../service/user');
+const { userService } = require('../service/index');
 
 module.exports = {
 	login: (req, res) => {
-		login(req.query.username, req.query.password)
+		userService
+			.login(req.query.username, req.query.password)
 			.then((user) => {
 				res.send(user);
 			})
@@ -12,13 +13,14 @@ module.exports = {
 			});
 	},
 	signup: (req, res) => {
-		signup(req.body)
+		userService
+			.signup(req.body)
 			.then((result) => {
 				res.send(result);
 			})
-            .catch(err => { 
-                console.log(err);
-                res.send('Not signing up!');
-            });
+			.catch((err) => {
+				console.log(err);
+				res.send('Not signing up!');
+			});
 	},
 };

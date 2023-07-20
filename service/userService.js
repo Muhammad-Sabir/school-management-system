@@ -1,8 +1,9 @@
-const { User } = require('../model/index');
+const { userModel } = require('../model/index');
 
 module.exports = {
 	login: (username, password) => {
-		return User.login(username, password)
+		return userModel
+			.login(username, password)
 			.then((result) => {
 				return result;
 			})
@@ -11,7 +12,8 @@ module.exports = {
 			});
 	},
 	signup: async function (body) {
-		return User.signup(body)
+		return userModel
+			.signup(body)
 			.then((result) => {
 				return result;
 			})

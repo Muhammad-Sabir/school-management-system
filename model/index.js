@@ -1,3 +1,5 @@
 module.exports = {
-	User: require('./user'),
+	userModel: require('./userModel'),
+	studentModel: require('./studentModel'),
+	teacherModel: require('./teacherModel'),
 };
