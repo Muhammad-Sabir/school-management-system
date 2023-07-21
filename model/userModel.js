@@ -1,7 +1,7 @@
 const { User } = require('./entities/index');
 
 module.exports = {
-	signup: (body) => {
+	createUser: (body) => {
 		return User.create(body)
 			.then((result) => {
 				console.log(result);
