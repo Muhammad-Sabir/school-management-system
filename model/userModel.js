@@ -4,7 +4,6 @@ module.exports = {
 	createUser: (body) => {
 		return User.create(body)
 			.then((result) => {
-				console.log(result);
 				return result;
 			})
 			.catch((err) => {
