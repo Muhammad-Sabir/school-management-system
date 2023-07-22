@@ -1,10 +1,24 @@
-const { studentModel } = require('../model/index');
+const { courseModel, taskModel } = require('../model/index');
 
 module.exports = {
-    getCourses: () => {
-		return 'Your courses in controller.';
+	getCourses: () => {
+		return courseModel
+			.getAllCourses()
+			.then((courses) => {
+				return courses;
+			})
+			.catch((err) => {
+				console.log('Student Service (getCourses): ', err);
+			});
 	},
 	getTasks: () => {
-		return 'Your tasks in controller.';
+		return taskModel
+			.getAllTasks()
+			.then((tasks) => {
+				return tasks;
+			})
+            .catch(err => { 
+                console.log('Student Service (getTasks): ', err);
+            });
 	},
 };
