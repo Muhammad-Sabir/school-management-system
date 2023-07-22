@@ -1,8 +1,10 @@
+const { studentService } = require('../service/index');
+
 module.exports = {
 	getCourses: (req, res) => {
-		res.send('Your courses');
+		res.send(studentService.getCourses());
 	},
 	getTasks: (req, res) => {
-		res.send('Your courses');
+		res.send(studentService.getTasks());
 	},
 };
