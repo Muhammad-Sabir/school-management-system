@@ -2,12 +2,6 @@ const joi = require('joi');
 
 const { userService } = require('../service/index');
 
-const signinSchema = joi.object({
-	username: joi.string().min(3).max(25).required(),
-	password: joi
-		.string()
-		.regex(/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9]{8,30}$/),
-});
 const signupSchema = joi.object({
 	firstName: joi.string().required(),
 	lastName: joi.string(),
