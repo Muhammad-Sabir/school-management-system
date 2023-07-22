@@ -7,7 +7,7 @@ module.exports = {
 				return tasks;
 			})
 			.catch((err) => {
-				console.log(err);
+				console.log('Task Model (getAllTasks): ', err);
 			});
 	},
 };

@@ -7,7 +7,7 @@ module.exports = {
 				return courses;
 			})
 			.catch((err) => {
-				console.log(err);
+				console.log('Course Model (getAllCourses): ', err);
 			});
 	},
 };

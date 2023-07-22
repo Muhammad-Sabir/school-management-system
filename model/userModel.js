@@ -7,7 +7,7 @@ module.exports = {
 				return result;
 			})
 			.catch((err) => {
-				console.log(err);
+				console.log('User Model (createUser): ', err);
 			});
 	},
 	login: (username, password) => {
@@ -22,62 +22,7 @@ module.exports = {
 				return result;
 			})
 			.catch((err) => {
-				console.log(err);
-				return err;
-			});
-	},
-	getUserById: async function (id) {
-		User.findBy({
-			where: {
-				id: id,
-			},
-		})
-			.then((result) => {
-				console.log(result);
-				return result;
-			})
-			.catch((err) => {
-				console.log(err);
-			});
-	},
-	getAllUsers: async function () {
-		User.findAll()
-			.then((result) => {
-				console.log(result);
-				return result;
-			})
-			.catch((err) => {
-				console.log(err);
-			});
-	},
-	removeUser: (id) => {
-		User.destroy({
-			where: {
-				id: id,
-			},
-		})
-			.then((result) => {
-				console.log(result);
-				return result;
-			})
-			.catch((err) => {
-				console.log(err);
-			});
-	},
-	updateUser: async function (body) {
-		User.update(body, {
-			where: {
-				id: id,
-			},
-			returning: true,
-		})
-			.then(([rowsUpdated, [updatedUser]]) => {
-				console.log(`${rowsUpdated} rows updated.`);
-				console.log('Updated user:', updatedUser);
-				return updatedUser;
-			})
-			.catch((err) => {
-				console.log(err);
+				console.log('User Model (login): ', err);
 			});
 	},
 };

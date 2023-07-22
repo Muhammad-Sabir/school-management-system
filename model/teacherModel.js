@@ -8,7 +8,7 @@ module.exports = {
 				return result;
 			})
 			.catch((err) => {
-				console.log(err);
+				console.log('Teacher Model (createTeacher): ', err);
 			});
 	},
 };
