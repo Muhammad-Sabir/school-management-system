@@ -6,6 +6,7 @@ const models = {
 	Student: require('./student'),
 	Teacher: require('./teacher'),
 	Course: require('./course'),
+	Task: require('./task'),
 	Enrollment: require('./enrollment'),
 	CourseTeacher: require('./courseTeacher'),
 };
@@ -39,6 +40,14 @@ models.Teacher.belongsToMany(models.Course, {
 });
 models.Course.belongsToMany(models.Teacher, {
 	through: 'CourseTeacher',
+	foreignKey: 'courseId',
+});
+
+// Course - Task
+models.Course.hasMany(models.Task, {
+	foreignKey: 'courseId',
+});
+models.Task.belongsTo(models.Course, {
 	foreignKey: 'courseId',
 });
 
