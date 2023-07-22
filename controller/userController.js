@@ -28,8 +28,8 @@ module.exports = {
 				res.send(user);
 			})
 			.catch((err) => {
-				console.log(err);
-				res.send('Not signing in!');
+				console.log('User Controller (login): ', err);
+				res.send('ERROR! User Controller (login).');
 			});
 	},
 	signup: (req, res) => {
@@ -45,8 +45,8 @@ module.exports = {
 				res.send(result);
 			})
 			.catch((err) => {
-				console.log(err);
-				res.send('Not signing up!');
+				console.log('User Controller (signup): ', err);
+				res.send('ERROR! User Controller (signup).');
 			});
 	},
 };
