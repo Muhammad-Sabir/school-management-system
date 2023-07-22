@@ -13,7 +13,7 @@ module.exports = {
 				return result;
 			})
 			.catch((err) => {
-				console.log(err);
+				console.log('User Service (login): ', err);
 			});
 	},
 	signup: async function (body) {
@@ -36,18 +36,14 @@ module.exports = {
 				switch (body.user.role) {
 					case 'student':
 						return studentModel.createStudent(specificData);
-						break;
 					case 'teacher':
 						return teacherModel.createTeacher(specificData);
-						break;
 					case 'admin':
 						return adminModel.createAdmin(specificData);
-						break;
 				}
 			})
 			.catch((err) => {
-				console.log(err);
-				return err;
+				console.log('User Service (signup): ', err);
 			});
 	},
 };
