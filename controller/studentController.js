@@ -1,5 +1,5 @@
 module.exports = {
-	getEnrolledCourses: (req, res) => {
+	getCourses: (req, res) => {
 		res.send('Your courses');
 	},
 	getTasks: (req, res) => {

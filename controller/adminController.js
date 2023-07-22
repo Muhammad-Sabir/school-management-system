@@ -1,20 +1,20 @@
 module.exports = {
-	getAllUsers: (req, res) => {
+	getUsers: (req, res) => {
 		res.send('Your course');
     },
-    getAllStudents: (req, res) => {
+    getStudents: (req, res) => {
 		res.send('Your course');
     },
-    getAllTeachers: (req, res) => {
+    getTeachers: (req, res) => {
 		res.send('Your course');
     },
-    getAllCourses: (req, res) => {
+    getCourses: (req, res) => {
 		res.send('Your course');
     },
-    getAllTasks: (req, res) => {
+    getTasks: (req, res) => {
 		res.send('Your course');
     },
-    getAllCoursesWithTasks: (req, res) => {
+    getTasksWithCourses: (req, res) => {
 		res.send('Your course');
 	},
 };
