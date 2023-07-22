@@ -1,4 +1,9 @@
-const { userModel, teacherModel, studentModel } = require('../model/index');
+const {
+	userModel,
+	teacherModel,
+	studentModel,
+	adminModel,
+} = require('../model/index');
 
 module.exports = {
 	login: (username, password) => {
@@ -12,11 +17,12 @@ module.exports = {
 			});
 	},
 	signup: async function (body) {
-		return userModel.createUser({
-			username: body.user.username,
-			password: body.user.password,
-			role: body.user.role,
-		})
+		return userModel
+			.createUser({
+				username: body.user.username,
+				password: body.user.password,
+				role: body.user.role,
+			})
 			.then((result) => {
 				const specificData = {
 					firstName: body.firstName,
@@ -27,10 +33,16 @@ module.exports = {
 					userId: result.dataValues.id,
 				};
 
-				if (body.user.role === 'student') {
-					return studentModel.createStudent(specificData);
-				} else {
-					return teacherModel.createTeacher(specificData);
+				switch (body.user.role) {
+					case 'student':
+						return studentModel.createStudent(specificData);
+						break;
+					case 'teacher':
+						return teacherModel.createTeacher(specificData);
+						break;
+					case 'admin':
+						return adminModel.createAdmin(specificData);
+						break;
 				}
 			})
 			.catch((err) => {

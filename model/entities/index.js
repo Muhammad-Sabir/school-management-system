@@ -2,12 +2,17 @@ const sequelize = require('../../config/dbConnection');
 
 const models = {
 	User: require('./user'),
+	Admin: require('./admin'),
 	Student: require('./student'),
 	Teacher: require('./teacher'),
 	Course: require('./course'),
 	Enrollment: require('./enrollment'),
 	CourseTeacher: require('./courseTeacher'),
 };
+
+// User - Admin
+models.User.hasOne(models.Admin, { foreignKey: 'userId' });
+models.Admin.belongsTo(models.User, { foreignKey: 'userId' });
 
 // User - Student
 models.User.hasOne(models.Student, { foreignKey: 'userId' });

@@ -16,7 +16,7 @@ const signupSchema = joi.object({
 				/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_-])[a-zA-Z0-9!@#$%^&*_-]{8,30}$/
 			)
 			.required(),
-		role: joi.string().valid('student', 'teacher'),
+		role: joi.string().valid('student', 'teacher', 'admin'),
 	},
 });
 
