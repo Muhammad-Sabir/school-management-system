@@ -17,13 +17,7 @@ module.exports = {
 	getTasksWithCourses: (req, res) => {
 		res.send('Your course');
 	},
-	addUser: (req, res) => {
-		res.send('Your course');
-	},
 	addCourse: (req, res) => {
-		res.send('Your course');
-	},
-	addTeacher: (req, res) => {
 		res.send('Your course');
 	},
 	addTask: (req, res) => {
