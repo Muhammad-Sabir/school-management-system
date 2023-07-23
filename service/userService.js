@@ -1,16 +1,25 @@
+const jwt = require('jsonwebtoken');
+
 const {
 	userModel,
 	teacherModel,
 	studentModel,
 	adminModel,
 } = require('../model/index');
+const secretKey = require('../config/config.json').jwt.secretKey;
 
 module.exports = {
 	login: (username, password) => {
 		return userModel
 			.login(username, password)
-			.then((result) => {
-				return result;
+			.then((user) => {
+				if (user) {
+					const token = jwt.sign(user.dataValues, secretKey);
+					return token;
+				} else {
+					console.log('Invalid username or password!');
+					return 'Invalid username or password!';
+				}
 			})
 			.catch((err) => {
 				console.log('User Service (login): ', err);
