@@ -17,8 +17,8 @@ module.exports = {
 			.then((tasks) => {
 				return tasks;
 			})
-            .catch(err => { 
-                console.log('Student Service (getTasks): ', err);
-            });
+			.catch((err) => {
+				console.log('Student Service (getTasks): ', err);
+			});
 	},
 };
