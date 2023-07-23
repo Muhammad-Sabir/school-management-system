@@ -1,3 +1,5 @@
+const { adminService } = require('../service/index');
+
 module.exports = {
 	getUsers: (req, res) => {
 		res.send('Your course');
@@ -18,9 +20,9 @@ module.exports = {
 		res.send('Your course');
 	},
 	addCourse: (req, res) => {
-		res.send('Your course');
+		res.send(adminService.addCourse(req.body));
 	},
 	addTask: (req, res) => {
-		res.send('Your course');
+		res.send(adminService.addCourse(req.body));
 	},
 };
