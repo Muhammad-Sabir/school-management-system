@@ -11,9 +11,9 @@ module.exports = {
 				console.log('Student Service (getCoursesByUserId): ', err);
 			});
 	},
-	getTasks: () => {
+	getTasksByUserId: (userId) => {
 		return taskModel
-			.getAllTasks()
+			.getTasksByUserId(userId)
 			.then((tasks) => {
 				return tasks;
 			})

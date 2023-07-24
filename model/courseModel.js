@@ -1,3 +1,5 @@
+const { Op } = require('sequelize');
+
 const { Course, User, Student, Enrollment } = require('./entities/index');
 
 module.exports = {
@@ -16,19 +18,26 @@ module.exports = {
 			include: [
 				{
 					model: Enrollment,
+					attributes: [],
 					include: {
 						model: Student,
+						attributes: [],
 						include: {
 							model: User,
+							attributes: [],
 							where: {
-								userId: userId,
+								id: userId,
 							},
 						},
+						required: true,
 					},
+					required: true,
 				},
 			],
 		})
-			.then((courses) => {})
+			.then((courses) => {
+				return courses;
+			})
 			.catch((err) => {
 				console.log('Course Model (getCoursesByUserId): ', err);
 			});

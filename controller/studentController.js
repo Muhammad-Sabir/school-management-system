@@ -14,7 +14,7 @@ module.exports = {
 	},
 	getTasks: (req, res) => {
 		studentService
-			.getTasks()
+			.getTasksByUserId(req.decoded.id)
 			.then((tasks) => {
 				res.send(tasks);
 			})
