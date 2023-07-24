@@ -1,14 +1,14 @@
-const { courseModel, taskModel } = require('../model/index');
+const { taskModel, courseModel } = require('../model/index');
 
 module.exports = {
-	getCourses: () => {
+	getCoursesByUserId: (userId) => {
 		return courseModel
-			.getAllCourses()
+			.getCoursesByUserId(userId)
 			.then((courses) => {
 				return courses;
 			})
 			.catch((err) => {
-				console.log('Student Service (getCourses): ', err);
+				console.log('Student Service (getCoursesByUserId): ', err);
 			});
 	},
 	getTasks: () => {

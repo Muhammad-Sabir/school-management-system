@@ -23,6 +23,22 @@ models.Student.belongsTo(models.User, { foreignKey: 'userId' });
 models.User.hasOne(models.Teacher, { foreignKey: 'userId' });
 models.Teacher.belongsTo(models.User, { foreignKey: 'userId' });
 
+// Enrollment - Course
+models.Enrollment.belongsTo(models.Course, {
+	foreignKey: 'courseId',
+});
+models.Course.hasMany(models.Enrollment, {
+	foreignKey: 'courseId',
+});
+
+// Enrollment - Student
+models.Enrollment.belongsTo(models.Student, {
+	foreignKey: 'studentId',
+});
+models.Student.hasMany(models.Enrollment, {
+	foreignKey: 'studentId',
+});
+
 // Student - Course
 models.Student.belongsToMany(models.Course, {
 	through: 'Enrollment',

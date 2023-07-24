@@ -22,6 +22,10 @@ function authMiddleware(req, res, next) {
 				.json({ message: 'Failed to authenticate token.' });
 		}
 
+		console.log(decoded);
+		req.decoded = decoded;
+		console.log(req.decoded);
+
 		if (decoded.role === 'admin' && req.baseUrl === '/admin') {
 			next();
 		} else if (decoded.role === 'student' && req.baseUrl === '/student') {

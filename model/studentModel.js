@@ -1,4 +1,4 @@
-const { Student } = require('./entities/index');
+const { Student} = require('./entities/index');
 
 module.exports = {
 	createStudent: (body) => {

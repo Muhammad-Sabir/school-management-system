@@ -1,4 +1,4 @@
-const { Course } = require('./entities/index');
+const { Course, User, Student, Enrollment } = require('./entities/index');
 
 module.exports = {
 	getAllCourses: () => {
@@ -8,6 +8,29 @@ module.exports = {
 			})
 			.catch((err) => {
 				console.log('Course Model (getAllCourses): ', err);
+			});
+	},
+	getCoursesByUserId: (userId) => {
+		return Course.findAll({
+			attributes: ['id', 'title', 'description'],
+			include: [
+				{
+					model: Enrollment,
+					include: {
+						model: Student,
+						include: {
+							model: User,
+							where: {
+								userId: userId,
+							},
+						},
+					},
+				},
+			],
+		})
+			.then((courses) => {})
+			.catch((err) => {
+				console.log('Course Model (getCoursesByUserId): ', err);
 			});
 	},
 };

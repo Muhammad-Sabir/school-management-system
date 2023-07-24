@@ -3,7 +3,7 @@ const { studentService } = require('../service/index');
 module.exports = {
 	getCourses: (req, res) => {
 		studentService
-			.getCourses()
+			.getCoursesByUserId(req.decoded.id)
 			.then((courses) => {
 				res.send(courses);
 			})
