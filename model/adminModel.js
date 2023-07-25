@@ -21,4 +21,18 @@ module.exports = {
 				throw err;
 			});
 	},
+	getCourseByTitle: (title) => {
+		return Course.findAll({
+			where: {
+				title: title,
+			},
+		})
+			.then((course) => {
+				return course;
+			})
+			.catch((err) => {
+				console.log('Admin Model (getCourseByTitle): ', err);
+				throw err;
+			});
+	},
 };
