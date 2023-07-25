@@ -15,7 +15,7 @@ module.exports = {
 				return result.dataValues;
 			})
 			.catch((err) => {
-				console.log('Admin Service (addCourse): ', err);
+				throw new Error(`Admin Service (addCourse): ${err}`);
 			});
 	},
 	addTask: (body) => {
@@ -25,7 +25,7 @@ module.exports = {
 				return result.dataValues;
 			})
 			.catch((err) => {
-				console.log('Admin Service (addTask): ', err);
+				throw new Error(`Admin Service (addTask): ${err}`);
 			});
 	},
 };

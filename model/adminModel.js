@@ -7,8 +7,7 @@ module.exports = {
 				return result;
 			})
 			.catch((err) => {
-				console.log('Admin Model (addCourse): ', err);
-				throw err;
+				throw new Error(`Admin Model (addCourse): ${err}`);
 			});
 	},
 	addTask: (body) => {
@@ -17,12 +16,11 @@ module.exports = {
 				return result;
 			})
 			.catch((err) => {
-				console.log('Admin Model (addTask): ', err);
-				throw err;
+				throw new Error(`Admin Model (addTask): ${err}`);
 			});
 	},
 	getCourseByTitle: (title) => {
-		return Course.findAll({
+		return Course.findOne({
 			where: {
 				title: title,
 			},
@@ -31,8 +29,7 @@ module.exports = {
 				return course;
 			})
 			.catch((err) => {
-				console.log('Admin Model (getCourseByTitle): ', err);
-				throw err;
+				throw new Error(`Admin Model (getCourseByTitle): ${err}`);
 			});
 	},
 };

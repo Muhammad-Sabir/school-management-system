@@ -5,11 +5,10 @@ module.exports = {
 		adminService
 			.addCourse(req.body)
 			.then((createdCourse) => {
-				res.send(`Added this course: ${createdCourse}`);
+				res.send(createdCourse);
 			})
 			.catch((err) => {
-				console.log('Admin Controller (addCourse): ', err);
-				res.send('ERROR! Admin Controller (addCourse).');
+				res.send(err.message);
 			});
 	},
 	addTask: (req, res) => {
@@ -22,23 +21,5 @@ module.exports = {
 				console.log('Admin Controller (addTask): ', err);
 				res.send('ERROR! Admin Controller (addTask).');
 			});
-	},
-	getUsers: (req, res) => {
-		res.send('Your course');
-	},
-	getStudents: (req, res) => {
-		res.send('Your course');
-	},
-	getTeachers: (req, res) => {
-		res.send('Your course');
-	},
-	getCourses: (req, res) => {
-		res.send('Your course');
-	},
-	getTasks: (req, res) => {
-		res.send('Your course');
-	},
-	getTasksWithCourses: (req, res) => {
-		res.send('Your course');
 	},
 };
