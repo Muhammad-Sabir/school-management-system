@@ -8,6 +8,7 @@ module.exports = {
 			})
 			.catch((err) => {
 				console.log('Admin Model (addCourse): ', err);
+				throw err;
 			});
 	},
 	addTask: (body) => {
@@ -17,6 +18,7 @@ module.exports = {
 			})
 			.catch((err) => {
 				console.log('Admin Model (addTask): ', err);
+				throw err;
 			});
 	},
 };

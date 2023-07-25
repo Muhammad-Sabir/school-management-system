@@ -10,6 +10,7 @@ module.exports = {
 			})
 			.catch((err) => {
 				console.log('Course Model (getAllCourses): ', err);
+				throw err;
 			});
 	},
 	getCoursesByUserId: (userId) => {
@@ -40,6 +41,7 @@ module.exports = {
 			})
 			.catch((err) => {
 				console.log('Course Model (getCoursesByUserId): ', err);
+				throw err;
 			});
 	},
 };

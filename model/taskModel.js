@@ -9,6 +9,7 @@ module.exports = {
 			})
 			.catch((err) => {
 				console.log('Task Model (getAllTasks): ', err);
+				throw err;
 			});
 	},
 	getTasksByUserId: (userId) => {
@@ -30,6 +31,7 @@ module.exports = {
 			})
 			.catch((err) => {
 				console.log('Task Model (getTasksByUserId): ', err);
+				throw err;
 			});
 	},
 };

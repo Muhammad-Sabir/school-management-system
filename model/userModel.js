@@ -8,6 +8,7 @@ module.exports = {
 			})
 			.catch((err) => {
 				console.log('User Model (createUser): ', err);
+				throw err;
 			});
 	},
 	login: (username, password) => {
@@ -23,6 +24,7 @@ module.exports = {
 			})
 			.catch((err) => {
 				console.log('User Model (login): ', err);
+				throw err;
 			});
 	},
 };

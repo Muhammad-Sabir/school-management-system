@@ -9,6 +9,7 @@ module.exports = {
 			})
 			.catch((err) => {
 				console.log('Student Model (createStudent): ', err);
+				throw err;
 			});
 	},
 };
