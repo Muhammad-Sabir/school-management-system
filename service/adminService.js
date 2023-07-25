@@ -20,5 +20,5 @@ module.exports = {
 			.catch((err) => {
 				console.log('Admin Service (addTask): ', err);
 			});
-	},
+	}
 };

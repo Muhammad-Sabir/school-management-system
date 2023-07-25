@@ -5,6 +5,10 @@ module.exports = {
 		return courseModel
 			.getCoursesByUserId(userId)
 			.then((courses) => {
+				if (!courses) {
+					throw new Error('No courses found for the given user ID.');
+				}
+
 				return courses;
 			})
 			.catch((err) => {
@@ -15,6 +19,10 @@ module.exports = {
 		return taskModel
 			.getTasksByUserId(userId)
 			.then((tasks) => {
+				if (!tasks) {
+					throw new Error('No tasks found for the given user ID.');
+				}
+
 				return tasks;
 			})
 			.catch((err) => {
