@@ -20,7 +20,14 @@ module.exports = {
 	},
 	addTask: (body) => {
 		return adminModel
-			.addTask(body)
+			.getTaskByTitle(body.title)
+			.then((task) => {
+				if (task) {
+					throw new Error('Task already exists.');
+				}
+
+				return adminModel.addTask(body);
+			})
 			.then((result) => {
 				return result.dataValues;
 			})

@@ -18,8 +18,7 @@ module.exports = {
 				res.send(createdTask);
 			})
 			.catch((err) => {
-				console.log('Admin Controller (addTask): ', err);
-				res.send('ERROR! Admin Controller (addTask).');
+				res.send(err.message);
 			});
 	},
 };
